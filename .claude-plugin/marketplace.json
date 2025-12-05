@@ -8,7 +8,7 @@
     {
       "name": "mcsound",
       "source": {
-        "type": "github",
+        "source": "github",
         "repo": "andrewgazelka/mcsound"
       },
       "description": "Minecraft sound effects for Claude Code events",
