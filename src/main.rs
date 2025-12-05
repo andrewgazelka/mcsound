@@ -1,8 +1,11 @@
 mod assets;
 mod audio;
 
+use std::env;
+use std::process::{Command, Stdio};
+
 use anyhow::Result;
-use clap::{Parser, Subcommand};
+use clap::{Args, Parser, Subcommand};
 
 #[derive(Parser)]
 #[command(name = "mcsound")]
@@ -21,10 +24,21 @@ enum Commands {
         pattern: Option<String>,
     },
     /// Play a sound by name
-    Play {
-        /// Sound path (e.g., mob/zombie/death)
-        sound: String,
-    },
+    Play(PlayArgs),
+}
+
+#[derive(Args)]
+struct PlayArgs {
+    /// Sound path (e.g., mob/zombie/death)
+    sound: String,
+
+    /// Wait for playback to finish (default: plays in background)
+    #[arg(short, long)]
+    wait: bool,
+
+    /// Internal flag: run in foreground (used by background spawn)
+    #[arg(long, hide = true)]
+    foreground: bool,
 }
 
 fn main() -> Result<()> {
@@ -38,9 +52,21 @@ fn main() -> Result<()> {
                 println!("{}", sound);
             }
         }
-        Commands::Play { sound } => {
-            let path = mc.resolve_sound(&sound)?;
-            audio::play_ogg(&path)?;
+        Commands::Play(args) => {
+            // If --wait or --foreground, play synchronously
+            if args.wait || args.foreground {
+                let path = mc.resolve_sound(&args.sound)?;
+                audio::play_ogg(&path)?;
+            } else {
+                // Spawn self as background process and exit immediately
+                let exe = env::current_exe()?;
+                Command::new(exe)
+                    .args(["play", "--foreground", &args.sound])
+                    .stdin(Stdio::null())
+                    .stdout(Stdio::null())
+                    .stderr(Stdio::null())
+                    .spawn()?;
+            }
         }
     }
 
