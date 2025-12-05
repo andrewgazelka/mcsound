@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <code>claude plugins add github:andrewgazelka/mcsound</code>
+  <code>claude plugin install github:andrewgazelka/mcsound</code>
 </p>
 
 ---
