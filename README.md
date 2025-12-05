@@ -7,7 +7,12 @@
 </p>
 
 <p align="center">
-  <code>claude plugin install github:andrewgazelka/mcsound</code>
+
+```bash
+claude plugin marketplace add andrewgazelka/mcsound
+claude plugin install mcsound
+```
+
 </p>
 
 ---

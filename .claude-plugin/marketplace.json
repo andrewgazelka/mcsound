@@ -1,0 +1,27 @@
+{
+  "name": "mcsound",
+  "owner": {
+    "name": "Andrew Gazelka",
+    "github": "andrewgazelka"
+  },
+  "plugins": [
+    {
+      "name": "mcsound",
+      "source": {
+        "type": "github",
+        "repo": "andrewgazelka/mcsound"
+      },
+      "description": "Minecraft sound effects for Claude Code events",
+      "version": "0.1.0",
+      "author": {
+        "name": "Andrew Gazelka",
+        "github": "andrewgazelka"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/andrewgazelka/mcsound",
+      "repository": "https://github.com/andrewgazelka/mcsound",
+      "keywords": ["minecraft", "sounds", "hooks", "notifications"],
+      "category": "utilities"
+    }
+  ]
+}
