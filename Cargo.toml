@@ -1,0 +1,15 @@
+[package]
+name = "mcsound"
+version = "0.1.0"
+edition = "2021"
+description = "Play Minecraft sounds from the command line"
+license = "MIT"
+repository = "https://github.com/andrewgazelka/mcsound"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rodio = { version = "0.19", default-features = false, features = ["vorbis"] }
+dirs = "5"
+anyhow = "1"

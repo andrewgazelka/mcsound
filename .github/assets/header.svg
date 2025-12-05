@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200">
+  <style>
+    .bg { fill: url(#bg-dark); }
+    .title { fill: #ffffff; }
+    .subtitle { fill: #8b949e; }
+    .grass { fill: #5B8731; }
+    .grass-edge { fill: #4a7028; }
+    .dirt { fill: #8B5A2B; }
+    .bar { fill: #50d890; }
+    .glow { opacity: 0.3; }
+
+    @media (prefers-color-scheme: light) {
+      .bg { fill: url(#bg-light); }
+      .title { fill: #1f2328; }
+      .subtitle { fill: #656d76; }
+      .glow { opacity: 0.15; }
+    }
+
+    @keyframes wave1 {
+      0%, 100% { transform: scaleY(0.3); }
+      50% { transform: scaleY(1); }
+    }
+    @keyframes wave2 {
+      0%, 100% { transform: scaleY(0.5); }
+      50% { transform: scaleY(0.8); }
+    }
+    @keyframes wave3 {
+      0%, 100% { transform: scaleY(0.7); }
+      50% { transform: scaleY(0.4); }
+    }
+    @keyframes wave4 {
+      0%, 100% { transform: scaleY(0.4); }
+      50% { transform: scaleY(0.9); }
+    }
+    @keyframes wave5 {
+      0%, 100% { transform: scaleY(0.6); }
+      50% { transform: scaleY(0.5); }
+    }
+
+    .bar { transform-origin: bottom; transform-box: fill-box; }
+    .bar1 { animation: wave1 1.2s ease-in-out infinite; }
+    .bar2 { animation: wave2 1.0s ease-in-out infinite; }
+    .bar3 { animation: wave3 1.4s ease-in-out infinite; }
+    .bar4 { animation: wave4 1.1s ease-in-out infinite; }
+    .bar5 { animation: wave5 1.3s ease-in-out infinite; }
+  </style>
+
+  <defs>
+    <linearGradient id="bg-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+    <linearGradient id="bg-light" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f6f8fa"/>
+    </linearGradient>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="20"/>
+    </filter>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="200"/>
+
+  <!-- Ambient glow behind block -->
+  <circle class="glow" cx="120" cy="100" r="70" fill="#50d890" filter="url(#blur)"/>
+
+  <!-- Minecraft-style grass block with sound waves -->
+  <g transform="translate(70, 50)" filter="url(#soft-shadow)">
+    <!-- Block -->
+    <rect class="dirt" x="0" y="0" width="100" height="100" rx="8"/>
+    <rect class="grass" x="0" y="0" width="100" height="35" rx="8"/>
+    <rect class="grass" x="0" y="27" width="100" height="8"/>
+    <rect class="grass-edge" x="0" y="31" width="100" height="4"/>
+
+    <!-- Sound wave bars -->
+    <rect class="bar bar1" x="120" y="20" width="8" height="60" rx="4"/>
+    <rect class="bar bar2" x="135" y="20" width="8" height="60" rx="4"/>
+    <rect class="bar bar3" x="150" y="20" width="8" height="60" rx="4"/>
+    <rect class="bar bar4" x="165" y="20" width="8" height="60" rx="4"/>
+    <rect class="bar bar5" x="180" y="20" width="8" height="60" rx="4"/>
+  </g>
+
+  <!-- Title -->
+  <text class="title" x="320" y="95" font-family="system-ui, -apple-system, sans-serif" font-size="64" font-weight="700">mcsound</text>
+
+  <!-- Subtitle -->
+  <text class="subtitle" x="320" y="130" font-family="system-ui, -apple-system, sans-serif" font-size="18">Play Minecraft sounds from the CLI</text>
+</svg>
