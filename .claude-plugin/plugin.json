@@ -1,0 +1,11 @@
+{
+  "name": "mcsound",
+  "version": "0.1.0",
+  "description": "Minecraft sound effects for Claude Code events",
+  "author": {
+    "name": "Andrew Gazelka",
+    "github": "andrewgazelka"
+  },
+  "license": "MIT",
+  "hooks": "../hooks/hooks.json"
+}

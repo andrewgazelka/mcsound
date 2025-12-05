@@ -45,3 +45,28 @@ cargo install --git https://github.com/andrewgazelka/mcsound
 **Requirement:** Minecraft Java Edition must have been launched at least once to download assets.
 
 </details>
+
+<details>
+<summary>Claude Code Plugin</summary>
+
+This repo is also a Claude Code plugin that adds Minecraft sound effects to Claude Code events.
+
+**Install the plugin:**
+```bash
+claude plugins add github:andrewgazelka/mcsound
+```
+
+**Sound mappings:**
+| Event | Sound |
+|-------|-------|
+| Session start | `random/door_open` |
+| Session end | `random/door_close` |
+| Task complete | `random/levelup` |
+| Subagent complete | `random/orb` |
+| Notification | `note/bell` |
+| File write/edit | `block/amethyst/place1` |
+| Bash command | `random/click` |
+| Task spawn | `block/end_portal/endportal` |
+| Web search/fetch | `block/end_portal/eyeplace1` |
+
+</details>
