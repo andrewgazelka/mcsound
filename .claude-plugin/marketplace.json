@@ -7,10 +7,7 @@
   "plugins": [
     {
       "name": "mcsound",
-      "source": {
-        "source": "github",
-        "repo": "andrewgazelka/mcsound"
-      },
+      "source": ".",
       "description": "Minecraft sound effects for Claude Code events",
       "version": "0.1.0",
       "author": {
