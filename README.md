@@ -33,6 +33,27 @@ A Claude Code plugin that plays Minecraft sounds for coding events — hear a do
 | Task spawn | `block/end_portal/endportal` |
 | Web search/fetch | `block/end_portal/eyeplace1` |
 
+## Configuration
+
+Override any sound via environment variables:
+
+| Variable | Default |
+|----------|---------|
+| `MCSOUND_SESSION_START` | `random/door_open` |
+| `MCSOUND_SESSION_END` | `random/door_close` |
+| `MCSOUND_STOP` | `random/levelup` |
+| `MCSOUND_SUBAGENT_STOP` | `random/orb` |
+| `MCSOUND_NOTIFICATION` | `note/bell` |
+| `MCSOUND_WRITE` | `block/amethyst/place1` |
+| `MCSOUND_BASH` | `random/click` |
+| `MCSOUND_TASK` | `block/end_portal/endportal` |
+| `MCSOUND_WEB` | `block/end_portal/eyeplace1` |
+
+```bash
+# Example: change task complete sound
+export MCSOUND_STOP="mob/villager/celebrate"
+```
+
 ## Requirements
 
 - Minecraft Java Edition must have been launched at least once (to download sound assets)
