@@ -29,8 +29,8 @@ enum Commands {
 
 #[derive(Args)]
 struct PlayArgs {
-    /// Sound path (e.g., mob/zombie/death)
-    sound: String,
+    /// Sound path (e.g., mob/zombie/death). If empty, does nothing.
+    sound: Option<String>,
 
     /// Wait for playback to finish (default: plays in background)
     #[arg(short, long)]
@@ -53,15 +53,20 @@ fn main() -> Result<()> {
             }
         }
         Commands::Play(args) => {
+            // Skip if no sound specified (disabled by default)
+            let Some(sound) = args.sound.filter(|s| !s.is_empty()) else {
+                return Ok(());
+            };
+
             // If --wait or --foreground, play synchronously
             if args.wait || args.foreground {
-                let path = mc.resolve_sound(&args.sound)?;
+                let path = mc.resolve_sound(&sound)?;
                 audio::play_ogg(&path)?;
             } else {
                 // Spawn self as background process and exit immediately
                 let exe = env::current_exe()?;
                 Command::new(exe)
-                    .args(["play", "--foreground", &args.sound])
+                    .args(["play", "--foreground", &sound])
                     .stdin(Stdio::null())
                     .stdout(Stdio::null())
                     .stderr(Stdio::null())

@@ -1,4 +1,4 @@
-use anyhow::{Context, Result, bail};
+use anyhow::{bail, Context, Result};
 use serde::Deserialize;
 use std::collections::HashMap;
 use std::env;
@@ -30,8 +30,8 @@ impl MinecraftAssets {
         let content = fs::read_to_string(&index_path)
             .with_context(|| format!("Failed to read index file: {}", index_path.display()))?;
 
-        let index: AssetIndex = serde_json::from_str(&content)
-            .context("Failed to parse asset index JSON")?;
+        let index: AssetIndex =
+            serde_json::from_str(&content).context("Failed to parse asset index JSON")?;
 
         // Filter to only sound files and map to hash
         let objects: HashMap<String, String> = index
@@ -53,9 +53,7 @@ impl MinecraftAssets {
             .objects
             .keys()
             .filter_map(|k| {
-                let name = k
-                    .strip_prefix("minecraft/sounds/")?
-                    .strip_suffix(".ogg")?;
+                let name = k.strip_prefix("minecraft/sounds/")?.strip_suffix(".ogg")?;
                 if let Some(p) = pattern {
                     if name.contains(p) {
                         Some(name)
@@ -74,10 +72,13 @@ impl MinecraftAssets {
     /// Resolve a sound name to its file path
     pub fn resolve_sound(&self, name: &str) -> Result<PathBuf> {
         let key = format!("minecraft/sounds/{}.ogg", name);
-        let hash = self.objects.get(&key)
+        let hash = self
+            .objects
+            .get(&key)
             .with_context(|| format!("Sound not found: {}", name))?;
 
-        let path = self.minecraft_dir
+        let path = self
+            .minecraft_dir
             .join("assets")
             .join("objects")
             .join(&hash[..2])
@@ -102,15 +103,12 @@ fn find_minecraft_dir() -> Result<PathBuf> {
 
     // Auto-detect by OS
     let path = if cfg!(target_os = "macos") {
-        dirs::home_dir()
-            .map(|h| h.join("Library/Application Support/minecraft"))
+        dirs::home_dir().map(|h| h.join("Library/Application Support/minecraft"))
     } else if cfg!(target_os = "windows") {
-        dirs::data_dir()
-            .map(|d| d.join(".minecraft"))
+        dirs::data_dir().map(|d| d.join(".minecraft"))
     } else {
         // Linux and others
-        dirs::home_dir()
-            .map(|h| h.join(".minecraft"))
+        dirs::home_dir().map(|h| h.join(".minecraft"))
     };
 
     let path = path.context("Could not determine home directory")?;
@@ -147,10 +145,12 @@ fn find_latest_index(minecraft_dir: &PathBuf) -> Result<PathBuf> {
         let a_name = a.file_name();
         let b_name = b.file_name();
         // Parse as numbers if possible for proper sorting (26 > 8)
-        let a_num: Option<u32> = a_name.to_str()
+        let a_num: Option<u32> = a_name
+            .to_str()
             .and_then(|s| s.strip_suffix(".json"))
             .and_then(|s| s.parse().ok());
-        let b_num: Option<u32> = b_name.to_str()
+        let b_num: Option<u32> = b_name
+            .to_str()
             .and_then(|s| s.strip_suffix(".json"))
             .and_then(|s| s.parse().ok());
 

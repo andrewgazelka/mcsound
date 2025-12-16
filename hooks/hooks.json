@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_SESSION_START:-random/door_open}",
+            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_SESSION_START:-}",
             "timeout": 10
           }
         ]
@@ -17,7 +17,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_SESSION_END:-random/door_close}",
+            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_SESSION_END:-}",
             "timeout": 10
           }
         ]
@@ -28,7 +28,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_STOP:-random/levelup}",
+            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_STOP:-random/orb}",
             "timeout": 10
           }
         ]
@@ -39,7 +39,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_SUBAGENT_STOP:-random/orb}",
+            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_SUBAGENT_STOP:-}",
             "timeout": 10
           }
         ]
@@ -51,7 +51,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_NOTIFICATION:-note/bell}",
+            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_NOTIFICATION:-}",
             "timeout": 10
           }
         ]
@@ -63,7 +63,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_WRITE:-block/amethyst/place1}",
+            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_WRITE:-}",
             "timeout": 10
           }
         ]
@@ -73,7 +73,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_BASH:-random/click}",
+            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_BASH:-}",
             "timeout": 10
           }
         ]
@@ -83,7 +83,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_TASK:-block/end_portal/endportal}",
+            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_TASK:-}",
             "timeout": 10
           }
         ]
@@ -95,7 +95,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_WEB:-block/end_portal/eyeplace1}",
+            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_WEB:-}",
             "timeout": 10
           }
         ]
