@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_SESSION_START:-}",
+            "command": "${HOME}/.claude/plugins/marketplaces/mcsound/mcsound-wrapper.sh play ${MCSOUND_SESSION_START:-}",
             "timeout": 10
           }
         ]
@@ -17,7 +17,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_SESSION_END:-}",
+            "command": "${HOME}/.claude/plugins/marketplaces/mcsound/mcsound-wrapper.sh play ${MCSOUND_SESSION_END:-}",
             "timeout": 10
           }
         ]
@@ -28,7 +28,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_STOP:-random/orb}",
+            "command": "${HOME}/.claude/plugins/marketplaces/mcsound/mcsound-wrapper.sh play ${MCSOUND_STOP:-random/orb}",
             "timeout": 10
           }
         ]
@@ -39,7 +39,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_SUBAGENT_STOP:-}",
+            "command": "${HOME}/.claude/plugins/marketplaces/mcsound/mcsound-wrapper.sh play ${MCSOUND_SUBAGENT_STOP:-}",
             "timeout": 10
           }
         ]
@@ -51,7 +51,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_NOTIFICATION:-}",
+            "command": "${HOME}/.claude/plugins/marketplaces/mcsound/mcsound-wrapper.sh play ${MCSOUND_NOTIFICATION:-}",
             "timeout": 10
           }
         ]
@@ -63,7 +63,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_WRITE:-}",
+            "command": "${HOME}/.claude/plugins/marketplaces/mcsound/mcsound-wrapper.sh play ${MCSOUND_WRITE:-}",
             "timeout": 10
           }
         ]
@@ -73,7 +73,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_BASH:-}",
+            "command": "${HOME}/.claude/plugins/marketplaces/mcsound/mcsound-wrapper.sh play ${MCSOUND_BASH:-}",
             "timeout": 10
           }
         ]
@@ -83,7 +83,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_TASK:-}",
+            "command": "${HOME}/.claude/plugins/marketplaces/mcsound/mcsound-wrapper.sh play ${MCSOUND_TASK:-}",
             "timeout": 10
           }
         ]
@@ -95,7 +95,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "nix run github:andrewgazelka/mcsound -- play ${MCSOUND_WEB:-}",
+            "command": "${HOME}/.claude/plugins/marketplaces/mcsound/mcsound-wrapper.sh play ${MCSOUND_WEB:-}",
             "timeout": 10
           }
         ]

@@ -57,7 +57,29 @@ export MCSOUND_STOP="mob/villager/celebrate"
 ## Requirements
 
 - Minecraft Java Edition must have been launched at least once (to download sound assets)
-- [Nix](https://nixos.org/) (the plugin uses `nix run` for zero-install execution)
+- Either [Nix](https://nixos.org/) or Rust/Cargo for building locally
+
+## Installation
+
+### With Nix
+The plugin uses `nix run` for zero-install execution. No additional setup needed.
+
+### Without Nix (Cargo)
+If you don't have Nix installed, build the binary locally:
+
+```bash
+cd ~/.claude/plugins/marketplaces/mcsound
+cargo build --release
+```
+
+The plugin will automatically use the built binary at `target/release/mcsound`.
+
+### Prism Launcher / Alternative Minecraft Locations
+If you use Prism Launcher or have Minecraft installed in a non-standard location, set the `MINECRAFT_HOME` environment variable:
+
+```bash
+export MINECRAFT_HOME="$HOME/.local/share/PrismLauncher"
+```
 
 ---
 
